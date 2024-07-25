@@ -6,3 +6,5 @@ find_package(data_tamer_cpp QUIET)
 add_executable(VOLT_Sim_Test test_sim/main.cpp test_sim/UnderwaterTestApp.cpp test_sim/UnderwaterTestManager.cpp)
 target_link_libraries(VOLT_Sim_Test VOLT_Sim_Lib)
 
+add_executable(Single_VOLT_Sim single_volt_sim/main.cpp single_volt_sim/SingleVoltApp.cpp single_volt_sim/SingleVoltSimulationManager.cpp)
+target_link_libraries(Single_VOLT_Sim VOLT_Sim_Lib)
