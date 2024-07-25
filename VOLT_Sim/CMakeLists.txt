@@ -1,4 +1,4 @@
-add_definitions(-DDATA_DIR_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Data/\")
+add_definitions(-DDATA_DIR_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/single_volt_sim/Data/\")
 
 find_package(data_tamer_cpp QUIET)
 

@@ -1,4 +1,4 @@
-/*    
+/*
     This file is a part of Stonefish.
 
     Stonefish is free software: you can redistribute it and/or modify
@@ -27,34 +27,32 @@
 #include "UnderwaterTestManager.h"
 #include <cfenv>
 
-int main(int argc, const char * argv[])
-{
-    //feenableexcept(FE_ALL_EXCEPT & ~FE_INEXACT);
-    //feenableexcept(FE_INVALID | FE_OVERFLOW);
-    
-    sf::RenderSettings s;
-    s.windowW = 1200;
-    s.windowH = 800;
-    s.aa = sf::RenderQuality::HIGH;
-    s.shadows = sf::RenderQuality::HIGH;
-    s.ao = sf::RenderQuality::HIGH;
-    s.atmosphere = sf::RenderQuality::MEDIUM;
-    s.ocean = sf::RenderQuality::HIGH;
-    s.ssr = sf::RenderQuality::HIGH;
-    
-    sf::HelperSettings h;
-    h.showFluidDynamics = false;
-    h.showCoordSys = false;
-    h.showBulletDebugInfo = false;
-    h.showSensors = false;
-    h.showActuators = false;
-    h.showForces = false;
-    
-    UnderwaterTestManager simulationManager(200.0);
-    simulationManager.setRealtimeFactor(1.0);
-    UnderwaterTestApp app(std::string(DATA_DIR_PATH), s, h, &simulationManager);
-    app.Run();
-    
-    return 0;
-}
+int main(int argc, const char *argv[]) {
+  // feenableexcept(FE_ALL_EXCEPT & ~FE_INEXACT);
+  // feenableexcept(FE_INVALID | FE_OVERFLOW);
 
+  sf::RenderSettings s;
+  s.windowW = 1200;
+  s.windowH = 800;
+  s.aa = sf::RenderQuality::HIGH;
+  s.shadows = sf::RenderQuality::HIGH;
+  s.ao = sf::RenderQuality::HIGH;
+  s.atmosphere = sf::RenderQuality::MEDIUM;
+  s.ocean = sf::RenderQuality::HIGH;
+  s.ssr = sf::RenderQuality::HIGH;
+
+  sf::HelperSettings h;
+  h.showFluidDynamics = false;
+  h.showCoordSys = false;
+  h.showBulletDebugInfo = false;
+  h.showSensors = false;
+  h.showActuators = false;
+  h.showForces = false;
+
+  UnderwaterTestManager simulationManager(200.0);
+  simulationManager.setRealtimeFactor(1.0);
+  UnderwaterTestApp app(std::string(DATA_DIR_PATH), s, h, &simulationManager);
+  app.Run();
+
+  return 0;
+}
