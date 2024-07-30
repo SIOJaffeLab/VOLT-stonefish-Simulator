@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
   s.ocean = sf::RenderQuality::HIGH;
   s.ssr = sf::RenderQuality::HIGH;
 
-  h.showFluidDynamics = false;
+  h.showFluidDynamics = true;
   h.showCoordSys = false;
   h.showBulletDebugInfo = false;
   h.showSensors = false;

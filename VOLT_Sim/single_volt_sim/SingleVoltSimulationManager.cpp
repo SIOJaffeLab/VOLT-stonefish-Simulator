@@ -1,4 +1,5 @@
 #include "SingleVoltSimulationManager.h"
+#include <Stonefish/core/SimulationManager.h>
 #include <Stonefish/entities/solids/Sphere.h>
 #include <Stonefish/entities/statics/Plane.h>
 #include <actuators/Light.h>
@@ -92,6 +93,17 @@ void SingleVoltSimulationManager::BuildScenario() {
       new sf::Terrain("Seabed", sf::GetDataPath() + "terrain.png", 1.0, 1.0,
                       5.0, "Rock", "seabed", 5.f);
   AddStaticEntity(seabed, sf::Transform(sf::IQ(), sf::Vector3(0, 0, 15.0)));
+
+  // create VOLT
+  sf::Polyhedron *volt_body =
+      new sf::Polyhedron("VoltBody", phy, sf::GetDataPath() + "volt.obj",
+                         sf::Scalar(1), sf::I4(), "Aluminium", "Yellow");
+
+  sf::Compound *vehicle = new sf::Compound("Vehicle", phy, volt_body, sf::I4());
+
+  sf::Robot *volt = new sf::FeatherstoneRobot("");
+  AddRobot(volt,
+           sf::Transform(sf::Quaternion(0, 0, 0), sf::Vector3(0.0, 0.0, 2.0)));
 }
 
 void SingleVoltSimulationManager::AddBall() {
