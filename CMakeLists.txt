@@ -55,25 +55,6 @@ if(OpenMP_CXX_FOUND)
     set(LIBRARIES ${LIBRARIES} ${OpenMP_CXX_LIBRARIES})
 endif()
 
-add_library(VOLT_Sim_Lib SHARED
-    ${SOURCES} 
-    ${SOURCES_3RD} 
-    ${RESOURCES}
-)
-target_link_libraries(VOLT_Sim_Lib PUBLIC
-    ${LIBRARIES}
-)
-target_compile_definitions(VOLT_Sim_Lib PUBLIC 
-    BT_EULER_DEFAULT_ZYX 
-    BT_USE_DOUBLE_PRECISION
-)
-if(NOT EMBED_RESOURCES)
-    #Sets shader path for the library
-  target_compile_definitions(VOLT_Sim_Lib PUBLIC
-        SHADER_DIR_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/Library/shaders/\"
-    )
-endif()
-add_subdirectory(VOLT_Sim)
 # Define targets
 if(BUILD_TESTS)
     # Create tests and use library locally (has to be disabled when installing system-wide!)
